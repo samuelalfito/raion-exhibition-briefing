@@ -113,7 +113,7 @@ export const slides = [
           </ul>
         </div>
       </div>
-      <p class="callout">Setiap tim wajib mengirim desain poster proyek dengan rasio <b>4:5</b>. Panitia yang mencetaknya jadi banner.</p>
+      <p class="callout">Poster <b>4:5</b> yang sudah dikirim tiap tim dicetak panitia jadi banner booth.</p>
     </div>
     <div class="figure">${bannerFigure}</div>
   </section>`,
@@ -213,7 +213,6 @@ export const slides = [
   `<section class="slide">
     ${header('09', 'Cek sebelum berangkat')}
     <ul class="check">
-      <li>Poster 4:5 sudah dikirim lewat form</li>
       <li>Laptop atau perangkat demo, lengkap dengan charger</li>
       <li>Kabel roll</li>
       <li>Jaket Raion, bagi yang sudah menerima</li>
@@ -221,21 +220,13 @@ export const slides = [
     </ul>
   </section>`,
 
-  // 11. Form dan kontak
-  `<section class="slide split contact">
-    <div>
-      ${header('10', 'Form dan kontak')}
-      <div class="card">
-        <h3>Form pengumpulan proyek</h3>
-        <p class="link">raion.clips.id/ProjectSubmissionExibhition</p>
-      </div>
-      <p class="callout">Ada yang belum jelas? Tanyakan sekarang.</p>
-    </div>
-    <div class="figure qr">
-      <img id="qr-form" alt="Kode QR menuju form pengumpulan proyek" />
-      <span>Form pengumpulan proyek</span>
+  // 11. Penutup
+  `<section class="slide cover">
+    <div class="cover-inner">
+      <span class="eyebrow">Penutup</span>
+      <h2>Ada pertanyaan?</h2>
+      <p class="sub">Kalau ada yang belum jelas, tanyakan sekarang.</p>
     </div>
   </section>`,
 ];
 
-export const FORM_URL = 'https://raion.clips.id/ProjectSubmissionExibhition';

@@ -3,8 +3,7 @@ import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import './style.css';
-import QRCode from 'qrcode';
-import { slides as slideHtml, FORM_URL } from './slides.js';
+import { slides as slideHtml } from './slides.js';
 
 const W = 1920;
 const H = 1080;
@@ -100,12 +99,6 @@ window.addEventListener('hashchange', () => {
   const n = parseInt(location.hash.replace('#/', ''), 10);
   if (n && n - 1 !== index) go(n - 1);
 });
-
-QRCode.toDataURL(FORM_URL, { margin: 1, width: 640, color: { dark: '#0e0e0f', light: '#ffffff' } }).then(
-  (url) => {
-    document.getElementById('qr-form').src = url;
-  },
-);
 
 fit();
 go((parseInt(location.hash.replace('#/', ''), 10) || 1) - 1);
