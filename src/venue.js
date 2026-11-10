@@ -371,7 +371,7 @@ export function createVenue(container) {
   controls.dampingFactor = 0.08;
   controls.rotateSpeed = 0.7;
   controls.zoomSpeed = 0.8;
-  controls.minDistance = 1.5;
+  controls.minDistance = 0.6;
   controls.maxDistance = 42;
   controls.maxPolarAngle = Math.PI / 2 - 0.03;
   controls.screenSpacePanning = false;
@@ -400,7 +400,8 @@ export function createVenue(container) {
     const t = controls.target;
     t.x = THREE.MathUtils.clamp(t.x, -12, 12);
     t.z = THREE.MathUtils.clamp(t.z, -13, 12);
-    t.y = THREE.MathUtils.clamp(t.y, 0, 2.6);
+    t.y = THREE.MathUtils.clamp(t.y, 0, 40);
+    const before = p.clone();
     const insideHall = Math.abs(p.x - hall.x) < hall.w / 2 && Math.abs(p.z - hall.z) < hall.d / 2;
     if (insideHall && p.y < 0.35) p.y = 0.35;
     if (!insideHall && p.y < -PLINTH + 0.4) p.y = -PLINTH + 0.4;
@@ -416,6 +417,8 @@ export function createVenue(container) {
       ].sort((a, b) => a[0] - b[0])[0];
       out[1]();
     }
+    // Titik pandang ikut terdorong, supaya arah pandang tidak berbelok saat kamera digeser keluar dari benda.
+    t.add(before.sub(p).negate());
   };
 
   // Kamera mengejar tujuan dari posisi saat ini, jadi bisa dipotong kapan saja tanpa loncatan.
@@ -576,7 +579,13 @@ export function createVenue(container) {
     const walk = (keys.has('ArrowUp') ? 1 : 0) - (keys.has('ArrowDown') ? 1 : 0);
     if (walk) {
       goal = null;
-      step.subVectors(controls.target, camera.position).setY(0).normalize().multiplyScalar(walk * 3.2 * dt);
+      // Selama berjalan, titik putar ditaruh tepat di depan kamera. Dengan begitu,
+      // menyeret setelahnya terasa seperti menoleh di tempat, tidak mengayun mengelilingi titik yang jauh.
+      step.subVectors(controls.target, camera.position);
+      if (step.length() > 0.9) controls.target.copy(camera.position).addScaledVector(step.normalize(), 0.8);
+      step.subVectors(controls.target, camera.position).setY(0);
+      if (step.lengthSq() < 1e-4) step.set(0, 1, 0).applyQuaternion(camera.quaternion).setY(0);
+      step.normalize().multiplyScalar(walk * 3.2 * dt);
       camera.position.add(step);
       controls.target.add(step);
     }
