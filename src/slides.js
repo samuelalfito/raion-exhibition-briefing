@@ -229,17 +229,7 @@ export const slides = [
         <h3>Form pengumpulan proyek</h3>
         <p class="link">raion.clips.id/ProjectSubmissionExibhition</p>
       </div>
-      <div class="two">
-        <div class="card">
-          <h3>Angga</h3>
-          <p class="link">0895-7006-19860</p>
-        </div>
-        <div class="card">
-          <h3>Sulthon</h3>
-          <p class="link">0898-1313-004</p>
-        </div>
-      </div>
-      <p class="callout">Ada yang belum jelas? Tanyakan sekarang, atau hubungi Angga dan Sulthon lewat WhatsApp.</p>
+      <p class="callout">Ada yang belum jelas? Tanyakan sekarang.</p>
     </div>
     <div class="figure qr">
       <img id="qr-form" alt="Kode QR menuju form pengumpulan proyek" />
