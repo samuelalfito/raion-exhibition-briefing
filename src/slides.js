@@ -8,7 +8,7 @@ import stickerUrl from './assets/vote-sticker.png';
 const rundown = [
   { start: '08.00', end: '09.00', agenda: 'Persiapan panitia', min: 60, who: 'Panitia' },
   { start: '09.00', end: '09.30', agenda: 'Peserta datang dan menata booth', min: 30, who: 'Peserta', you: true },
-  { start: '09.30', end: '12.00', agenda: 'Showcase sesi 1, pengunjung mulai datang 10.00', min: 150, who: 'Peserta', you: true },
+  { start: '09.30', end: '12.00', agenda: 'Showcase sesi 1', min: 150, who: 'Peserta', you: true },
   { start: '12.00', end: '13.00', agenda: 'Istirahat, salat, makan', min: 60, who: 'Peserta', you: true },
   { start: '13.00', end: '15.00', agenda: 'Showcase sesi 2', min: 120, who: 'Peserta', you: true },
   { start: '15.00', end: '15.30', agenda: 'Penutupan', min: 30, who: 'Panitia' },
@@ -42,24 +42,19 @@ export const slides = [
     </div>
   </section>`,
 
-  // 2. Empat jam
+  // 2. Tiga jam
   `<section class="slide">
-    ${header('01', 'Empat jam yang harus diingat')}
+    ${header('01', 'Tiga jam yang harus diingat')}
     <div class="clocks">
       <article>
         <strong>09.00</strong>
         <h3>Tiba di booth</h3>
         <p>Setengah jam untuk menata meja, memasang perangkat, dan mencoba demo.</p>
       </article>
-      <article>
-        <strong>09.30</strong>
-        <h3>Showcase dimulai</h3>
-        <p>Peserta sudah di booth masing-masing dan mulai memamerkan proyeknya.</p>
-      </article>
       <article class="hot">
-        <strong>10.00</strong>
-        <h3>Pengunjung datang</h3>
-        <p>Pengunjung mulai berkeliling dan mencoba proyek. Paling lambat jam ini booth sudah siap sepenuhnya.</p>
+        <strong>09.30</strong>
+        <h3>Booth siap, showcase dimulai</h3>
+        <p>Paling lambat jam ini booth sudah siap sepenuhnya. Sesi 1 langsung berjalan.</p>
       </article>
       <article>
         <strong>15.00</strong>

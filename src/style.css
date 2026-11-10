@@ -221,27 +221,27 @@ ul {
 /* ---------- Tiga jam ---------- */
 .clocks {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
   flex: 1;
 }
 .clocks article {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 40px;
+  padding: 52px;
 }
 .clocks strong {
-  font-size: 136px;
+  font-size: 196px;
   line-height: 1;
 }
 .clocks h3 {
   margin: 20px 0 14px;
-  font-size: 38px;
+  font-size: 44px;
 }
 .clocks p {
   color: var(--muted);
-  font-size: 27px;
+  font-size: 30px;
 }
 .clocks .hot {
   background: var(--gold);
