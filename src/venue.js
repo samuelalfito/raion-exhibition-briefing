@@ -285,7 +285,7 @@ export function createVenue(container) {
     // Lidah atas: tepi bawah gambar menempel di lipatan depan, lalu naik ke arah belakang meja.
     flap: new THREE.PlaneGeometry(DESK.width, WRAP).rotateX(-Math.PI / 2).rotateY(Math.PI / 2),
     seat: cube(0.38, 0.04, 0.38),
-    back: cube(0.03, 0.3, 0.38),
+    back: cube(0.02, 0.3, 0.38),
     leg: cube(0.03, 0.44, 0.03),
     backLeg: cube(0.03, 0.82, 0.03),
   };
@@ -298,10 +298,11 @@ export function createVenue(container) {
     const c = new THREE.Group();
     c.position.set(-0.52, 0, z);
     add(G.seat, M.chairBlue, 0, 0.44, 0, { parent: c });
-    add(G.back, M.chairBlue, -0.18, 0.67, 0, { parent: c });
+    // Sandaran dipasang di depan tiang belakang, tidak sebidang, supaya permukaannya tidak saling tembus.
+    add(G.back, M.chairBlue, -0.165, 0.67, 0, { parent: c });
     [-0.17, 0.17].forEach((lz) => {
       add(G.leg, M.cream, 0.17, 0.22, lz, { parent: c });
-      add(G.backLeg, M.cream, -0.18, 0.41, lz, { parent: c });
+      add(G.backLeg, M.cream, -0.19, 0.41, lz, { parent: c });
     });
     parent.add(c);
   };
